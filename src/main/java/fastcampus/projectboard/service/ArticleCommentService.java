@@ -23,8 +23,15 @@ public class ArticleCommentService {
 
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
+<<<<<<< Updated upstream
     private final UserAccountRepository userAccountRepository;
 
+=======
+<<<<<<< Updated upstream
+=======
+    private final UserAccountRepository userAccountRepository;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     @Transactional(readOnly = true)
     public List<ArticleCommentDto> searchArticleComments(Long articleId) {
@@ -43,6 +50,7 @@ public class ArticleCommentService {
             log.warn("댓글 저장 실패. 댓글 작성에 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
         }
     }
+
     public void updateArticleComment(ArticleCommentDto dto) {
         try {
             ArticleComment articleComment = articleCommentRepository.getReferenceById(dto.id());
@@ -52,8 +60,8 @@ public class ArticleCommentService {
         }
     }
 
-    public void deleteArticleComment(Long articleCommentId) {
-        articleCommentRepository.deleteById(articleCommentId);
+    public void deleteArticleComment(Long articleCommentId, String userId) {
+        articleCommentRepository.deleteByIdAndUserAccount_UserId(articleCommentId, userId);
     }
 
 }
