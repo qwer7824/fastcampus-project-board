@@ -23,15 +23,7 @@ public class ArticleCommentService {
 
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
-<<<<<<< Updated upstream
     private final UserAccountRepository userAccountRepository;
-
-=======
-<<<<<<< Updated upstream
-=======
-    private final UserAccountRepository userAccountRepository;
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
     @Transactional(readOnly = true)
     public List<ArticleCommentDto> searchArticleComments(Long articleId) {
