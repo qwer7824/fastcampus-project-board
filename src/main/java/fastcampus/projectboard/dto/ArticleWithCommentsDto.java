@@ -1,6 +1,9 @@
 package fastcampus.projectboard.dto;
 
 import fastcampus.projectboard.domain.Article;
+import fastcampus.projectboard.dto.response.ArticleCommentResponse;
+import fastcampus.projectboard.dto.response.ArticleWithCommentsResponse;
+
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
