@@ -38,7 +38,7 @@ class JpaRepositoryTest {
 
     @DisplayName("select test")
     @Test
-    void givenTestData_whenSelecting_thenWorkFine(){
+    void givenTestData_whenSelecting_thenWorksFine() {
         // Given
 
         // When
@@ -47,7 +47,7 @@ class JpaRepositoryTest {
         // Then
         assertThat(articles)
                 .isNotNull()
-                .hasSize(50);
+                .hasSize(123);
     }
     @DisplayName("insert test")
     @Test

@@ -31,11 +31,6 @@ class ArticleCommentServiceTest {
 
     @Mock private ArticleRepository articleRepository;
     @Mock private ArticleCommentRepository articleCommentRepository;
-<<<<<<< Updated upstream
-=======
-    @Mock private UserAccountRepository userAccountRepository;
->>>>>>> Stashed changes
-
     @Mock private UserAccountRepository userAccountRepository;
 
     @DisplayName("게시글 ID로 조회하면, 해당하는 댓글 리스트를 반환한다.")
