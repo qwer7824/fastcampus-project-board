@@ -1,6 +1,8 @@
 package fastcampus.projectboard.config;
 
+import fastcampus.projectboard.domain.AuditorAwareImpl;
 import org.springframework.context.annotation.Bean;
+import fastcampus.projectboard.dto.security.BoardPrincipal;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -14,14 +16,20 @@ import java.util.Optional;
 @Configuration
 public class JpaConfig {
 
-    @Bean
+    /*@Bean
     public AuditorAware<String> auditorAware() {
         return () -> Optional.ofNullable(SecurityContextHolder.getContext())
                 .map(SecurityContext::getAuthentication)
                 .filter(Authentication::isAuthenticated)
                 .map(Authentication::getPrincipal)
-                .map(com.fastcampus.projectboard.dto.security.BoardPrincipal.class::cast)
-                .map(com.fastcampus.projectboard.dto.security.BoardPrincipal::getUsername);
+                .map(BoardPrincipal.class::cast)
+                .map(BoardPrincipal::getUsername);
     }
 
+
+     */
+    @Bean
+    public AuditorAware<String> auditorProvider() { //등록자와 수정자를 처리해 주는 AuditorAware을 빈으로 등록
+        return new AuditorAwareImpl();
+    }
 }
