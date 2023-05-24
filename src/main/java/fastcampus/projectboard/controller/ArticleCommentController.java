@@ -1,5 +1,6 @@
 package fastcampus.projectboard.controller;
 
+import fastcampus.projectboard.dto.security.BoardPrincipal;
 import fastcampus.projectboard.dto.UserAccountDto;
 import fastcampus.projectboard.dto.request.ArticleCommentRequest;
 import fastcampus.projectboard.dto.request.ArticleRequest;
@@ -20,7 +21,7 @@ public class ArticleCommentController {
 
     @PostMapping ("/new")
     public String postNewArticleComment(
-            @AuthenticationPrincipal com.fastcampus.projectboard.dto.security.BoardPrincipal boardPrincipal,
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleCommentRequest articleCommentRequest
     ) {
         articleCommentService.saveArticleComment(articleCommentRequest.toDto(boardPrincipal.toDto()));
@@ -32,7 +33,7 @@ public class ArticleCommentController {
     @PostMapping ("/{commentId}/delete")
     public String deleteArticleComment(
             @PathVariable Long commentId,
-            @AuthenticationPrincipal com.fastcampus.projectboard.dto.security.BoardPrincipal boardPrincipal,
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             Long articleId
     ) {
         articleCommentService.deleteArticleComment(commentId, boardPrincipal.getUsername());

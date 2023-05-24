@@ -2,6 +2,7 @@ package fastcampus.projectboard.controller;
 
 import fastcampus.projectboard.domain.constant.FormStatus;
 import fastcampus.projectboard.domain.constant.SearchType;
+import fastcampus.projectboard.dto.security.BoardPrincipal;
 import fastcampus.projectboard.dto.UserAccountDto;
 import fastcampus.projectboard.dto.request.ArticleRequest;
 import fastcampus.projectboard.dto.response.ArticleResponse;
@@ -83,7 +84,7 @@ public class ArticleController {
 
     @PostMapping ("/form")
     public String postNewArticle(
-            @AuthenticationPrincipal com.fastcampus.projectboard.dto.security.BoardPrincipal boardPrincipal,
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleRequest articleRequest
     ) {
         articleService.saveArticle(articleRequest.toDto(boardPrincipal.toDto()));
@@ -104,7 +105,7 @@ public class ArticleController {
     @PostMapping ("/{articleId}/form")
     public String updateArticle(
             @PathVariable Long articleId,
-            @AuthenticationPrincipal com.fastcampus.projectboard.dto.security.BoardPrincipal boardPrincipal,
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleRequest articleRequest
     ) {
         articleService.updateArticle(articleId, articleRequest.toDto(boardPrincipal.toDto()));
@@ -115,7 +116,7 @@ public class ArticleController {
     @PostMapping ("/{articleId}/delete")
     public String deleteArticle(
             @PathVariable Long articleId,
-            @AuthenticationPrincipal com.fastcampus.projectboard.dto.security.BoardPrincipal boardPrincipal
+            @AuthenticationPrincipal BoardPrincipal boardPrincipal
     ) {
         articleService.deleteArticle(articleId, boardPrincipal.getUsername());
 
