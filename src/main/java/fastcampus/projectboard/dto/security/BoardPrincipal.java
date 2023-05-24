@@ -1,4 +1,4 @@
-package com.fastcampus.projectboard.dto.security;
+package fastcampus.projectboard.dto.security;
 
 import fastcampus.projectboard.dto.UserAccountDto;
 import lombok.Getter;
