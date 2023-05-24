@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>회원 가입</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<header id="header">
+  header 템플릿 삽입부
+  <hr>
+</header>
+
+<form th:action="@{/signup}" th:object="${userAccountRequest}" method="post">
+  <label for="userId">ID</label>
+  <input id="userId" name="userId" type="text" required>
+  <label for="userPassword">Password</label>
+  <input id="userPassword" name="userPassword" type="password" required>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" placeholder="you@example.com">
+  <label for="nickname">Nickname</label>
+  <input id="nickname" name="nickname" type="text">
+  <label for="memo">메모</label>
+  <textarea id="memo" name="memo" rows="3"></textarea>
+  <button type="submit">가입</button>
+</form>
+
+<footer id="footer">
+  <hr>
+  footer 템플릿 삽입부
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</body>
+</html>
