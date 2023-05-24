@@ -3,7 +3,7 @@ package fastcampus.projectboard.config;
 
 import fastcampus.projectboard.dto.UserAccountDto;
 import fastcampus.projectboard.repository.UserAccountRepository;
-import com.fastcampus.projectboard.dto.security.BoardPrincipal;
+import fastcampus.projectboard.dto.security.BoardPrincipal;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +27,12 @@ public class SecurityConfig {
                                 HttpMethod.GET,
                                 "/",
                                 "/articles",
-                                "/articles/search-hashtag"
+                                "/articles/search-hashtag",
+                                "/signup"
+                        ).permitAll()
+                        .mvcMatchers(
+                                HttpMethod.POST,
+                                "/signup"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
