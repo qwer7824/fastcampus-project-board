@@ -4,6 +4,10 @@
 
 이 프로젝트는 fastcampus 게시판 강의를 보고 만들었습니다.
 
+## ERD
+https://raw.githubusercontent.com/qwer7824/fastcampus-project-board/9cba127c45ce12b68a3f8fdea7a81f140074698e/document/project-board-erd.svg
+
+
 ## 개발 환경
 
 * Intellij IDEA Ultimate 2022.1.1 ~ 2022.1.3
